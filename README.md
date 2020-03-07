@@ -1,18 +1,36 @@
 # docx_cr_converter
 
-TODO: Write a description here
+This tool initially extract text and simple markings from a .DOCX file and convert it to markdow format.
 
 ## Installation
 
-TODO: Write installation instructions here
+```yml
+Add this to your application's shard.yml:
+
+development_dependencies:
+  docx_cr_converter:
+    github: aristotelesbr2014/docx_cr_converter
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```crystal
+DocxCrConverter.parse("./my-doc.docx")
+# =>  # My Awesome document
+#
+#     ## First
+#
+#     This tool initially extract text and simple markings from a .DOCX file and convert it to markdow format.
+```
 
-## Development
+## Feature
 
 TODO: Write development instructions here
+
+- [ ] Converter `.DOCX`
+  - [x] `Markdown`
+  - [ ] `HTML`
+  - [ ] `Latex`
 
 ## Contributing
 
@@ -24,4 +42,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [your-name-here](https://github.com/your-github-user) - creator and maintainer
+- [Aristoteles Coutinho](https://github.com/aristotelesbr2014) - creator and maintainer
