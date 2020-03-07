@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/aristotelesbr2014/docx_cr_converter.svg?branch=master)](https://travis-ci.org/aristotelesbr2014/docx_cr_converter)
+
 # docx_cr_converter
 
 This tool initially extract text and simple markings from a .DOCX file and convert it to markdow format.
