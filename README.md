@@ -4,9 +4,9 @@ This tool initially extract text and simple markings from a .DOCX file and conve
 
 ## Installation
 
-```yml
 Add this to your application's shard.yml:
 
+```yml
 development_dependencies:
   docx_cr_converter:
     github: aristotelesbr2014/docx_cr_converter
