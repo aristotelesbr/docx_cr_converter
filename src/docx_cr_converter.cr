@@ -1,6 +1,2 @@
-# TODO: Write documentation for `DocxCrConverter`
-module DocxCrConverter
-  VERSION = "0.1.0"
-
-  # TODO: Put your code here
-end
+require "docx_cr_converter/parser"
+require "docx_cr_converter/version"
