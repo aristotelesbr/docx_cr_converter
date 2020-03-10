@@ -17,9 +17,13 @@ development_dependencies:
 ## Usage
 
 ```crystal
-DocxCrConverter.parse("./my-doc.docx")
+docx = DocxCrConverter::Parser.new("./file-sample.docx")
+docx.parse
+puts docx.errors?
+# => false
+puts docx.document
+
 # =>  # My Awesome document
-#
 #
 #   ## Spectator
 #
