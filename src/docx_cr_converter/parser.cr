@@ -1,10 +1,11 @@
 module DocxCrConverter
   class Parser
-    getter :xml, :docx_path, :errors
+    getter :xml, :docx_path, :errors, :document
 
     def initialize(@docx_path : String)
       @xml = DocxCrConverter::ExtractFiles.new(@docx_path)
       @errors = [] of String
+      @document = ""
     end
 
     def errors?
@@ -14,11 +15,10 @@ module DocxCrConverter
     def parse
       return @errors << "Invalid XML::Node parser" unless @xml.xml_document.is_a?(XML::Node)
 
-      output = ""
       @xml.xml_document.as(XML::Node).xpath_nodes("//*[name()='w:p']").map do |child|
         case child.name
         when "p"
-          output += "\n\n"
+          @document += "\n\n"
           child.children.map do |r|
             case r.name
             when "pPr"
@@ -28,18 +28,18 @@ module DocxCrConverter
                 when "pStyle"
                   case s["val"]
                   when "Title"
-                    output += "# \n"
+                    @document += "# \n"
                   when "Heading1"
-                    output += "# "
+                    @document += "# "
                   when "Heading2"
-                    output += "## "
+                    @document += "## "
                   when "Quote"
-                    output += "> "
+                    @document += "> "
                   when "Normal.0"
-                    output += "\n\n"
+                    @document += "\n\n"
                   end
                 when "numPr"
-                  output += "+ "
+                  @document += "+ "
                 when "rPr"
                   # Get Bold style
                 end
@@ -49,7 +49,7 @@ module DocxCrConverter
               r.children.map do |x|
                 case x.name
                 when "t"
-                  return (output += x.text).as(String)
+                  @document += x.text
                 end
               end
             end

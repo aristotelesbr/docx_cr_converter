@@ -14,10 +14,14 @@ Spectator.describe DocxCrConverter::Parser do
     end
 
     context "#parser" do
+      let(parse_docx) { DocxCrConverter::Parser.new("./spec/fixtures/file-sample.docx") }
+      before_each do
+        parse_docx.parse
+      end
       given path = "./spec/fixtures/file-sample.docx" do
-        it { expect(docx).to be_truthy }
-        it { expect(docx.parse.is_a?(String)).to be_truthy }
-        it { expect(docx.parse).to match(/Lorem ipsum/) }
+        it { expect(parse_docx).to be_truthy }
+        it { expect(parse_docx.document.is_a?(String)).to be_truthy }
+        it { expect(parse_docx.document).to match(/Lorem ipsum/) }
       end
     end
   end
