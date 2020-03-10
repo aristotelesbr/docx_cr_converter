@@ -17,6 +17,8 @@ development_dependencies:
 ## Usage
 
 ```crystal
+require "docx_cr_converter"
+
 docx = DocxCrConverter::Parser.new("./file-sample.docx")
 docx.parse
 puts docx.errors?
