@@ -2,8 +2,7 @@ module DocxCrConverter
   class ExtractFiles
     getter :xml_document, :docx_path, :errors
 
-    def initialize(docx_path : String)
-      @docx_path = docx_path
+    def initialize(@docx_path : String)
       @xml_document = XML.build(&.to_s)
       @errors = [] of String
       perform
