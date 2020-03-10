@@ -20,9 +20,24 @@ development_dependencies:
 DocxCrConverter.parse("./my-doc.docx")
 # =>  # My Awesome document
 #
-#     ## First
 #
-#     This tool initially extract text and simple markings from a .DOCX file and convert it to markdow format.
+#   ## Spectator
+#
+#     Spectator is a fully-featured spec-based test framework for Crystal.
+#   It mimics features from RSpec.
+#   Developers coming from Ruby and RSpec will feel right at home.
+#   Spectator provides additional functionality to make testing easier and more fluent.
+#
+#   Goal:
+#
+#   * Spectator is designed to:
+#   * Reduce complexity of test code.
+#   * Remove boilerplate from tests.
+#   * Lower the difficulty of writing non-trivial tests.
+#   * Provide an elegant syntax that is easy to read and understand.
+#   * Provide common utilities that the end-user would otherwise need to write.
+#
+#  ....
 ```
 
 ## Feature
