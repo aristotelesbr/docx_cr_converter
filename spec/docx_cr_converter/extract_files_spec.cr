@@ -11,12 +11,5 @@ Spectator.describe DocxCrConverter::ExtractFiles do
         it { expect(docx.errors?).to be_falsey }
       end
     end
-    context "with invalid data" do
-      let(invalid_path) { "./spec/fixtures/XPTO.docx" }
-      given path = invalid_path do
-        it { expect(docx.errors?).to be_truthy }
-        it { expect(docx.errors.first).to eq("Error opening file '#{invalid_path}' with mode 'r': No such file or directory") }
-      end
-    end
   end
 end
