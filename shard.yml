@@ -2,7 +2,7 @@ name: docx_cr_converter
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - Aristóteles Coutingo <aristotelesbr@gmail.com>
 
 targets:
   docx_cr_converter:
