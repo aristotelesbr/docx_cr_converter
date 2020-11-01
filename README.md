@@ -54,6 +54,10 @@ TODO: Write development instructions here
   - [x] `Markdown`
   - [ ] `HTML`
   - [ ] `Latex`
+  
+  Note: I have no idea what Aristoteles thought, but I don't know anything about Latex. If you need this feature, please send PR.
+  
+  Note2: Compared to my predecessor, I changed the parser.cr heavily, so I'm not sure if he will accept my changes.
 
 ## Contributing
 
