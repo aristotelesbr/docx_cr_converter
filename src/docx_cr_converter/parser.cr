@@ -90,6 +90,38 @@ module DocxCrConverter
               end
             end
 
+            if c.as(XML::Node).xpath_nodes("w:r/w:rPr/w:u")
+              unless c.as(XML::Node).xpath_nodes("w:r/w:rPr/w:u").to_s.includes?("none")
+                if c.to_s.includes?("w:u")
+                  d = c.as(XML::Node).xpath_nodes("w:r/w:t").to_s.sub("</w:t>", "").sub("<w:t>", "")
+                  unless d.empty?
+                    @document += " <ins>#{d}</ins> <br />"
+                  end
+                end
+              end
+            end
+
+            if c.as(XML::Node).xpath_nodes("w:r/w:rPr/w:strike")
+              unless c.as(XML::Node).xpath_nodes("w:r/w:rPr/w:strike").to_s.includes?("false") ||
+                     c.as(XML::Node).xpath_nodes("w:r/w:rPr/w:dstrike").to_s.includes?("false")
+                if c.to_s.includes?("w:strike")
+                  d = c.as(XML::Node).xpath_nodes("w:r/w:t").to_s.sub("</w:t>", "").sub("<w:t>", "")
+                  unless d.empty?
+                    @document += " <del>#{d}</del> <br />"
+                  end
+                end
+              end
+            end
+
+            if c.as(XML::Node).xpath_nodes("w:p/w:pPr/w:numPr")
+                if c.to_s.includes?("numId")
+                  d = c.as(XML::Node).xpath_nodes("w:r/w:t").to_s.sub("</w:t>", "").sub("<w:t>", "")
+                  unless d.empty?
+                    @document += " + #{d}"
+                  end
+                end
+              end
+
             if c.as(XML::Node).xpath_nodes("w:r/w:rPr/w:iCs")
               unless c.as(XML::Node).xpath_nodes("w:r/w:rPr/w:iCs").to_s.includes?("false")
                 if c.to_s.includes?("iCs")
