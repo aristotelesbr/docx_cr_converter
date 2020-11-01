@@ -66,3 +66,4 @@ TODO: Write development instructions here
 ## Contributors
 
 - [Aristoteles Coutinho](https://github.com/aristotelesbr2014) - creator and maintainer
+- [Rafael Pszenny](https://github.com/onliniak/) - Fixed markdown
