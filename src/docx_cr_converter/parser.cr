@@ -28,7 +28,7 @@ module DocxCrConverter
           heading "Heading5", "##### #{word} \n\n"
           heading "Heading6", "###### #{word} \n\n"
           heading "Quote", "> \n\n"
-          #heading "Normal.0", "\n\n"
+          heading "Normal.0", "\n\n"
         end
 
         text_node = node.as(XML::Node).xpath_nodes("w:pStyle/@w:val").to_a
@@ -41,7 +41,7 @@ module DocxCrConverter
               text_style "iCs", "*#{word}* "
               text_style "u", "<ins>#{word}</ins> "
               text_style "strike", "<del>#{word}</del> "
-              text_style "numPr", "+ #{word} \n\n"
+              text_style "numPr", "\n\n + #{word} \n\n"
             end
 
             if @changed === false
