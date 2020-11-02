@@ -16,6 +16,8 @@ development_dependencies:
 
 ## Usage
 
+### Markd
+
 ```crystal
 require "docx_cr_converter"
 require "markd"
@@ -45,6 +47,38 @@ p html.gsub("\n", "")
 #<p>List</p>
 #</li>
 #</ul>
+```
+
+### Plain Markdown
+
+```crystal
+require "docx_cr_converter"
+
+docx = DocxCrConverter::Parser.new("./files/document.docx")
+docx.parse
+puts docx.errors?
+# => false
+puts docx.document
+
+# # Title 
+#
+# ## Subtitle 
+#
+# # Header1 
+#
+# ## Header2 
+#
+# ### Header3 
+#
+#  Normal txt **Bold txt** *Italics txt* <ins>Underscore txt</ins> <del>Strike txt</del> + Unordered 
+#
+# + List 
+#
+# + Numbered 
+#
+# + List 
+#
+#
 ```
 
 ## Feature
