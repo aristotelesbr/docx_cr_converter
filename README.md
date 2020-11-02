@@ -37,9 +37,11 @@ p html.gsub("\n", "")
 #<em>Italics txt</em>
 #<ins>Underscore txt</ins>
 #<del>Strike txt</del>
-#+ Unordered</p>
+#</p>
 #<ul>
 #<li>
+#<p>Unordered</p>
+#</li><li>
 #<p>List</p>
 #</li><li>
 #<p>Numbered</p>
@@ -70,7 +72,9 @@ puts docx.document
 #
 # ### Header3 
 #
-#  Normal txt **Bold txt** *Italics txt* <ins>Underscore txt</ins> <del>Strike txt</del> + Unordered 
+#  Normal txt **Bold txt** *Italics txt* <ins>Underscore txt</ins> <del>Strike txt</del> 
+#
+#+ Unordered 
 #
 # + List 
 #
