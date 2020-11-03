@@ -27,7 +27,7 @@ module DocxCrConverter
           heading "Heading4", "#### #{word} \n\n"
           heading "Heading5", "##### #{word} \n\n"
           heading "Heading6", "###### #{word} \n\n"
-          heading "Quote", "> \n\n"
+          heading "Quote", "\n\n > \n\n"
           heading "Normal.0", "\n\n"
         end
 
