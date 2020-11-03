@@ -13,7 +13,7 @@ module DocxCrConverter
     end
 
     private def perform
-      Zip::File.open(@docx_path) do |file|
+      Compress::Zip::File.open(@docx_path) do |file|
         file.entries.each do |entry|
           entry.open do |io|
             @xml_document = XML.parse(io.gets_to_end) if entry.filename == "word/document.xml"

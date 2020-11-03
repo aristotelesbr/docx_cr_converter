@@ -16,34 +16,73 @@ development_dependencies:
 
 ## Usage
 
+### Markd
+
+```crystal
+require "docx_cr_converter"
+require "markd"
+
+docx = DocxCrConverter::Parser.new("./files/document.docx")
+docx.parse
+html = Markd.to_html(docx.document)
+p html.gsub("\n", "")
+
+#<h1>Title</h1>
+#<h2>Subtitle</h2>
+#<h1>Header1</h1>
+#<h2>Header2</h2>
+#<h3>Header3</h3>
+#<p>Normal txt 
+#<strong>Bold txt</strong>
+#<em>Italics txt</em>
+#<ins>Underscore txt</ins>
+#<del>Strike txt</del>
+#</p>
+#<ul>
+#<li>
+#<p>Unordered</p>
+#</li><li>
+#<p>List</p>
+#</li><li>
+#<p>Numbered</p>
+#</li><li>
+#<p>List</p>
+#</li>
+#</ul>
+```
+
+### Plain Markdown
+
 ```crystal
 require "docx_cr_converter"
 
-docx = DocxCrConverter::Parser.new("./file-sample.docx")
+docx = DocxCrConverter::Parser.new("./files/document.docx")
 docx.parse
 puts docx.errors?
 # => false
 puts docx.document
 
-# =>  # My Awesome document
+# # Title 
 #
-#   ## Spectator
+# ## Subtitle 
 #
-#     Spectator is a fully-featured spec-based test framework for Crystal.
-#   It mimics features from RSpec.
-#   Developers coming from Ruby and RSpec will feel right at home.
-#   Spectator provides additional functionality to make testing easier and more fluent.
+# # Header1 
 #
-#   Goal:
+# ## Header2 
 #
-#   * Spectator is designed to:
-#   * Reduce complexity of test code.
-#   * Remove boilerplate from tests.
-#   * Lower the difficulty of writing non-trivial tests.
-#   * Provide an elegant syntax that is easy to read and understand.
-#   * Provide common utilities that the end-user would otherwise need to write.
+# ### Header3 
 #
-#  ....
+#  Normal txt **Bold txt** *Italics txt* <ins>Underscore txt</ins> <del>Strike txt</del> 
+#
+#+ Unordered 
+#
+# + List 
+#
+# + Numbered 
+#
+# + List 
+#
+#
 ```
 
 ## Feature
@@ -66,3 +105,4 @@ TODO: Write development instructions here
 ## Contributors
 
 - [Aristoteles Coutinho](https://github.com/aristotelesbr2014) - creator and maintainer
+- [Rafael Pszenny](https://github.com/onliniak/) - Fixed markdown
