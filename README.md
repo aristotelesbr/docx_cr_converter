@@ -4,95 +4,62 @@
 
 This tool initially extract text and simple markings from a .DOCX file and convert it to markdow format.
 
-## Installation
+## Instal
 
 Add this to your application's shard.yml:
 
 ```yml
 development_dependencies:
   docx_cr_converter:
-    github: aristotelesbr2014/docx_cr_converter
+    github: aristotelesbr/docx_cr_converter
 ```
 
 ## Usage
 
-### Markd
-
-```crystal
-require "docx_cr_converter"
-require "markd"
-
-docx = DocxCrConverter::Parser.new("./files/document.docx")
-docx.parse
-html = Markd.to_html(docx.document)
-p html.gsub("\n", "")
-
-#<h1>Title</h1>
-#<h2>Subtitle</h2>
-#<h1>Header1</h1>
-#<h2>Header2</h2>
-#<h3>Header3</h3>
-#<p>Normal txt 
-#<strong>Bold txt</strong>
-#<em>Italics txt</em>
-#<ins>Underscore txt</ins>
-#<del>Strike txt</del>
-#</p>
-#<ul>
-#<li>
-#<p>Unordered</p>
-#</li><li>
-#<p>List</p>
-#</li><li>
-#<p>Numbered</p>
-#</li><li>
-#<p>List</p>
-#</li>
-#</ul>
-```
-
-### Plain Markdown
-
-```crystal
+```cr
 require "docx_cr_converter"
 
-docx = DocxCrConverter::Parser.new("./files/document.docx")
+docx = DocxCrConverter::Parser.new("./spec/fixtures/valid.docx")
 docx.parse
-puts docx.errors?
-# => false
+
 puts docx.document
-
-# # Title 
-#
-# ## Subtitle 
-#
-# # Header1 
-#
-# ## Header2 
-#
-# ### Header3 
-#
-#  Normal txt **Bold txt** *Italics txt* <ins>Underscore txt</ins> <del>Strike txt</del> 
-#
-#+ Unordered 
-#
-# + List 
-#
-# + Numbered 
-#
-# + List 
-#
-#
 ```
 
-## Feature
+Output:
 
-TODO: Write development instructions here
+```md
+# Lorem ipsum 
 
-- [ ] Converter `.DOCX`
-  - [x] `Markdown`
-  - [ ] `HTML`
-  - [ ] `Latex`
+# + Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac faucibus odio. 
+
+Vestibulum neque massa, scelerisque sit amet ligula eu, congue molestie mi. Praesent ut varius sem. Nullam at portti
+tor arcu, nec lacinia nisi. Ut ac dolor vitae odio interdum condimentum. Vivamus dapibus sodales ex, vitae malesuada
+ ipsum cursus convallis. Maecenas sed egestas nulla, ac condimentum orci. Mauris diam felis, vulputate ac suscipit e
+t, iaculis non est. Curabitur semper arcu ac ligula semper, nec luctus nisl blandit. Integer lacinia ante ac libero 
+lobortis imperdiet. Nullam mollis convallis ipsum, ac accumsan nunc vehicula vitae. Nulla eget justo in felis tristi
+que fringilla. Morbi sit amet tortor quis risus auctor condimentum. Morbi in ullamcorper elit. Nulla iaculis tellus 
+sit amet mauris tempus fringilla.
+
+Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
+
++ Maecenas non lorem quis tellus placerat varius. 
+
++ Nulla facilisi. 
+
++ Aenean congue fringilla justo ut aliquam. 
+
++ Nunc vulputate neque vitae justo facilisis, non condimentum ante sagittis. 
+
++ Morbi viverra semper lorem nec molestie. 
+
++ Maecenas tincidunt est efficitur ligula euismod, sit amet ornare est vulputate.
+```
+
+## TODO
+
+- [x] Converter `.DOCX`
+    - [x] `Markdown`
+    - [ ] `HTML`
 
 ## Contributing
 
@@ -105,4 +72,3 @@ TODO: Write development instructions here
 ## Contributors
 
 - [Aristoteles Coutinho](https://github.com/aristotelesbr2014) - creator and maintainer
-- [Rafael Pszenny](https://github.com/onliniak/) - Fixed markdown
