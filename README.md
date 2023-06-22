@@ -72,3 +72,4 @@ Maecenas mauris lectus, lobortis et purus mattis, blandit dictum tellus.
 ## Contributors
 
 - [Aristoteles Coutinho](https://github.com/aristotelesbr2014) - creator and maintainer
+- [Rafael Pszenny](https://github.com/onliniak/) - Fixed extract
