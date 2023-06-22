@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/aristotelesbr2014/docx_cr_converter.svg?branch=master)](https://travis-ci.org/aristotelesbr2014/docx_cr_converter)
+[![Crystal CI](https://github.com/aristotelesbr/docx_cr_converter/actions/workflows/crystal.yml/badge.svg)](https://github.com/aristotelesbr/docx_cr_converter/actions/workflows/crystal.yml)
 
 # docx_cr_converter
 
